@@ -10,8 +10,8 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-    console.log(req.query.id);
-    const userId = ObjectId.createFromHexString(req.query.id);
+    console.log(req.params.id);
+    const userId = ObjectId.createFromHexString(req.params.id);
     console.log(userId);
     const result = await mongodb.getDb().db().collection('contacts').find({_id: userId});
     result.toArray().then((contacts) => {
