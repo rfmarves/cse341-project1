@@ -1,17 +1,56 @@
 // DEVELOPMENT
 
-## get all contacts
+### get all contacts
 GET http://localhost:3000/contacts/
 
 
-## get one contact by id
+### get one contact by id
 GET http://localhost:3000/contacts/68699b80398a632687173aac
 
+### Create a contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Manuella",
+    "lastName": "Marini",
+    "email": "mMarini@family.com",
+    "favoriteColor": "green",
+    "birthday": "2014-07-13"
+}
+
+### Update a contact
+PUT http://localhost:3000/contacts/68699b80398a632687173aac HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Rene",
+  "lastName": "Marves",
+  "email": "changed@example.come",
+  "favoriteColor": "blue",
+  "birthday": "1982-07-13"
+}
+
+### Update a contact (reverts other update)
+PUT http://localhost:3000/contacts/68699b80398a632687173aac HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Rene",
+  "lastName": "Marves",
+  "email": "rfmarves@byupathway.edu",
+  "favoriteColor": "blue",
+  "birthday": "1982-07-13"
+}
+
+### Delete a contact
+DELETE http://localhost:3000/contacts/687051e9bbac1fcd379f5220
+
 // PRODUCTION
-## get all contacts
+### get all contacts
 GET https://project1-oqfg.onrender.com/contacts
 
 
-## Get one contact by id
+### Get one contact by id
 GET https://project1-oqfg.onrender.com/contacts/68699b80398a632687173aac
 
