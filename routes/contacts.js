@@ -13,6 +13,4 @@ router.put('/:id', contactsController.updateContact);
 
 router.delete('/:id', contactsController.deleteContact);
 
-// router.get('/id', (req, res) => {res.send('This ran');});
-
 module.exports = router;

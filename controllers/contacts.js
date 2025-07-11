@@ -2,6 +2,7 @@ const mongodb = require('../db/connect.js');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const result = await mongodb.getDb().db().collection('contacts').find();
     result.toArray().then((contacts) => {
         res.setHeader('Content-Type', 'application/json');
@@ -10,6 +11,7 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const contactId = ObjectId.createFromHexString(req.params.id);
     const result = await mongodb.getDb().db().collection('contacts').find({_id: contactId});
     result.toArray().then((contacts) => {
@@ -19,6 +21,7 @@ const getById = async (req, res) => {
 };
 
 const createContact = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -35,6 +38,7 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
+    //#swagger.tags=['Contacts']
     console.log(req.params.id);
     console.log("------------------------------------------");
     console.log(req);
@@ -57,6 +61,7 @@ const updateContact = async (req, res) => {
 };
 
 const deleteContact = async (req, res) => {
+    //#swagger.tags=['Contacts']
     const contactId = ObjectId.createFromHexString(req.params.id);
     const response = await mongodb.getDb().db().collection('contacts').deleteOne({_id: contactId });
     if (response.deletedCount > 0) {
