@@ -7,12 +7,12 @@ const doc = {
     title: 'Contacts API',
     description: 'Contacts API for Project 1 in CSE341 Web Services course at BYU Pathway.'
   },
-  host: `${process.env.HOST}:${process.env.PORT || 3000}`,
+  host: `${process.env.SWAGGERHOST}` || 'localhost:3000',
   schemes: ['http', 'https'],
 };
 
 const outputFile = './swagger.json';
-const routes = ['./routes/index.js', './routes/contacts.js'];
+const routes = ['./routes/index.js'];
 
 /* NOTE: If you are using the express Router, you must pass in the 'routes' only the 
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
